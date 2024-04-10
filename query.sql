@@ -26,7 +26,7 @@ MaxServicio AS (
         MAX(s.id) AS valor
     FROM tra_servicios s
     -- Check con la tabla de nóminas previa agregación para filtrar por fechas y trabajador (asumiendo que tra_servicios no tiene campos de fecha)
-    WHERE EXISTS (SELECT 1 FROM NominaAgg n WHERE n.idtrabajador = s.idtrabajador AND anio = 2024 AND mes = 3)
+    WHERE EXISTS (SELECT 1 FROM NominaAgg n WHERE n.idtrabajador = s.idtrabajador AND n.anio = 2024 AND n.mes = 3)
     GROUP BY idtrabajador
 )
 SELECT
